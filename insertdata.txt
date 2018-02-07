@@ -1,0 +1,14 @@
+INSERT INTO Users(UserID, Uname, Pword, AccessLevel, SessionString)
+VALUES (182418, 'pHanson', '1234', 3, 'TEST');
+
+INSERT INTO Users(UserID, Uname, Pword, AccessLevel, SessionString)
+VALUES (183726, 'aLulli', '1234', 3, 'TEST2');
+
+INSERT INTO Users(UserID, Uname, Pword, AccessLevel, SessionString)
+VALUES (183102, 'cKearns', '1234', 3, 'TEST3');
+
+INSERT INTO Users(UserID, Uname, Pword, AccessLevel, SessionString)
+VALUES (187014, 'aWisegarver', '1234', 3, 'TEST4');
+
+INSERT INTO Users(UserID, Uname, Pword, AccessLevel, SessionString)
+VALUES (186750, 'cVernon', '1234', 3, 'TEST5');

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Login/Register</title>
+  <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+
+<body>
+
+<!-- A page for the user to login or register -->
+  <h1> Login or Register: </h1>
+  <p><b> If you already have an account, please login below.
+		Otherwise, create an account to be part of DPOS!</b></p>
+
+  <form method="get" action="DPOSLogin.auth.php">
+    <h3> Login </h3>
+    <p><label>Username:
+	<input name="username" type ="text" size="18"
+		maxlength="24" placeholder= "username" />
+    </label></p>
+
+       <p><label>Password:
+	   <input name="password" type ="password" size="18"
+		  maxlength="24" placeholder= "password" />
+    </label></p>
+
+	<input type="submit" value="Submit" />
+	<input type="reset" value="Clear"/>
+  </form>
+
+  <!-- If the user doesn't already have an account -->
+  <form method="get" action="register.php">
+    <h3> Register </h3>
+    <p><label>USNA Email:
+	<input name="dusername" type ="text" size="18"
+		maxlength="24" placeholder= "username" />
+    </label></p>
+
+       <p><label>Desired Password:
+	   <input name="password" type ="password" size="18"
+		  maxlength="24" placeholder= "password" />
+    </label></p>
+
+	<p><label>Re-type Password:
+	   <input name="repassword" type ="password" size="18"
+		  maxlength="24" placeholder= "password" />
+    </label></p>
+
+	<!-- Choose the state user lives in -->
+	<p>What company are you in?
+	<select>
+      <option value="1">1</option> <option value="AK">2</option>
+      <option value="2">3</option> <option value="AL">4</option>
+	  <option value="3">5</option> <option value="CO">6</option>
+	  <option value="4">7</option> <option value="FL">8</option>
+	  <option value="HI">9</option> <option value="ID">10</option>
+	  <option value="IN">11</option> <option value="IA">12</option>
+	  <option value="KY">13</option> <option value="LA">14</option>
+	  <option value="MD">15</option> <option value="MA">16</option>
+	  <option value="MN">17</option> <option value="MS">18</option>
+	  <option value="MT">19</option> <option value="NE">20</option>
+	  <option value="NH">21</option> <option value="NJ">22</option>
+	  <option value="NY">23</option> <option value="NC">24</option>
+	  <option value="OH">25</option> <option value="PA">26</option>
+	  <option value="SD">27</option> <option value="UT">28</option>
+	  <option value="WA">29</option> <option value="WY">30</option>
+    </select>
+
+
+	<input type= "hidden" name = "scripting"
+	value = "LogInRegister" />
+
+    <input type="hidden" name="recipient" value="m182418@usna.edu" />
+
+    <br>
+	<input type="submit" value="Submit" />
+	<input type="reset" value="Clear"/>
+  </form>
+  </body>
+
+  <!-- ***************************************************************
+       Below this point is text you should include on every IT350 page
+       *************************************************************** -->
+
+  <!-- Below is a script to output the time at which this page was last modified.
+       Later in the course we will learn how this works.  -->
+  <!-- This makes a button you can click on to validate your page - also include this on every page -->
+  <p> <br/><br/></p>
+  <hr/>
+  <p>
+   	<script type = "text/javascript">
+	 document.write('<a href="http://mope.academy.usna.edu/w3c-validator/check?uri='+document.location+'">' +
+        '<img src="http://www.w3.org/html/logo/img/mark-word-icon.png"'+
+		'alt="Valid HTML 5!" height="50" width="50" />'+
+      '</a>');
+	</script>
+    This page last modified
+    <script type="text/javascript">
+      document.write(document.lastModified);
+    </script>
+  </p>
+
+
+
+</html>

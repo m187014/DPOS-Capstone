@@ -1,0 +1,9 @@
+/* styles.css */
+td	{background-color: transparent; color: black; text-align: center}
+th	{background-color: blue; color: gold}
+table	{margin-left: auto; margin-right: auto; border-style: groove; border-width: thick; padding: 10px; text-align: center}
+a	{font-weight: bold; text-decoration: none}
+body	{background-image: url("w.png"); font-family: "Lucida Console"; text-align: center}
+h1 	{text-decoration: underline}
+p.thick {font-weight: bold; font-size: 20px; padding: 100px}
+ul	{list-style-type: none;}
