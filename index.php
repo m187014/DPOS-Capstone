@@ -95,7 +95,7 @@ h1,h2,h3,h4,h5,h6 {
       <h4>Supreme <button type="button">Order</button></h4>
       <p class="w3-text-grey">Like it all? Poor at decisions? Then get it all!</p><br>
     
-      <h4>Create your own <button type="button">Create</button></h4>
+      <h4>Create your own <button type="button" onclick="window.location.href=\'DesignPizzaPage.html\'">Create</button></h4>
       <p class="w3-text-grey">Too choosy? Like to over-comlpicate things? Make your own! </p>    
     </div>
     
