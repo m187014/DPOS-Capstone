@@ -3,7 +3,7 @@
 require_once("page.inc.php");
 
 //create page object
-$page = new Page("LoginPage");
+$page = new Page("RegistrationPage");
 
 //add to page
 $page->content = '
@@ -90,15 +90,35 @@ $page->content = '
 		</select>
 		</label></p>
 
-		<input type="submit" value="Submit" />
-		<input type="reset" value="Clear"/>
+		<input type="submit" value="Submit" style="width:100px" />
+		<input type="reset" value="Clear" style="width:100px"/>
 		</form>
+		<br>
+		<form method="get" action="login.php">
+       		<button type="submit" style="width:200px">Go Back to Login</button>
+      		</form>
 		
        
   		</div>
 
         </div>
      </div>
+<div class="w3-row w3-padding-64" id="about">
+    <div class="w3-col m6 w3-padding-large w3-hide-small">
+     <img src="pizza.jpg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="600" height="750">
+	 <!--pic from:
+		http://images2.fanpop.com/images/photos/7300000/Slice-of-Pizza-pizza-7383219-1600-1200.jpg
+	 -->
+    </div>
+
+    <div class="w3-col m6 w3-padding-large">
+      <h1 class="w3-center">Drydock Pizza Ordering System</h1><br>
+      
+      <p class="w3-large">Drydock Pizza Ordering System, or DPOS, is an application created for midshipman, by midshipman. It allows midshipman to place an order to drydock for a gourmet pizza! No need to wait in line, just place an order, and recieve an email when your order is ready!</p>
+      <p class="w3-large w3-text-grey w3-hide-medium">"DPOS is the future of the brigade"</p>
+    </div>
+  </div>
+
   </section>';
 
 // Show the page
