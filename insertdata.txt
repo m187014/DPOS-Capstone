@@ -12,3 +12,9 @@ VALUES (187014, 'aWisegarver', '1234', 3, 'TEST4');
 
 INSERT INTO Users(UserID, Uname, Pword, AccessLevel, SessionString)
 VALUES (186750, 'cVernon', '1234', 3, 'TEST5');
+
+INSERT INTO Users(UserID, Uname, Pword, AccessLevel, SessionString)
+VALUES (001122, 'cook1', '1234', 2, 'TEST5');
+
+INSERT INTO Users(UserID, Uname, Pword, AccessLevel, SessionString)
+VALUES (001123, 'cook2', '1234', 2, 'TEST5');
