@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<!--TOOK TEMPLATE FROM:
+https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_templates_gourmet_catering&stacked=h
+-->
+<html>
+<title>DPOS</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<script type="application/javascript">
+	function allowDrop(ev) {
+		ev.preventDefault();
+	}
+
+	function drag(ev) {
+		ev.dataTransfer.setData("text", ev.target.id);
+	}
+
+	function drop(ev) {
+		ev.preventDefault();
+		var data = ev.dataTransfer.getData("text");
+		showTopping(data);
+		var elem = document.getElementById(data.slice(0,-2));
+		elem.removeChild(elem.children[0]);
+	}
+
+	function showTopping(topping){
+	if(document.getElementById(topping + "Check").checked){
+			document.getElementById(topping + "Img").style.display = "inline";
+		}
+		else{
+			document.getElementById(topping + "Img").style.display = "none";
+		}
+	}
+	
+	function clearSelection(){
+		var c = document.getElementById("toppingsForm").children;
+		for (i = 0; i < 5; i++){
+			if (c[i].tagName == "INPUT" && c[i].type == "checkbox"){
+				document.getElementById(c[i].id.slice(0,-5) + "Img").style.display = "none";
+				c[i].checked = false;
+			}
+		}
+		//window.alert(c[0].type);
+	}
+
+</script>
+
+
+<style>
+body {font-family: "Times New Roman", Georgia, Serif;}
+h1,h2,h3,h4,h5,h6 {
+    font-family: "Playfair Display";
+    letter-spacing: 5px;
+}
+
+	.pizzaDesignDiv
+	{
+		position:relative;
+		float:left;
+		height: 600px;
+		width: 600px;
+		border-style: solid;
+		background-image: url("img/pizzaBackground.png");
+		background-size: 100% 100%;
+	}
+	.toppingsContainer
+	{
+		position: relative;
+		float:left;
+		height: 600px;
+		width: 300px;
+		border-style: solid;
+
+		}
+	.toppingOp
+	{
+		position:absolute;
+		top:0px;
+		left:0px;
+		height:600px;
+		width:600px;
+		//max-width: 100%;
+		//max-height: 100%;
+	}
+	.toppingDiv
+	{
+		position: relative;
+		float: top;
+		width: 100px;
+		height: 100px;
+		margin: 100px 0 0 75px;
+		}
+		
+	
+</style>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-padding w3-card-2" style="letter-spacing:4px;">
+    <a href="OrderPage.html#home" class="w3-bar-item w3-button">D.P.O.S.</a>
+    <!-- Right-sided navbar links. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+      <a href="OrderPage.html#about" class="w3-bar-item w3-button">About</a>
+      <a href="OrderPage.html#menu" class="w3-bar-item w3-button">Menu</a>
+      <a href="OrderPage.html#contact" class="w3-bar-item w3-button">Contact</a>
+	  <a href="loginDPOS.html" class="w3-bar-item w3-button">Login/Register</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
+  <img class="w3-image" src="/w3images/hamburger.jpg" alt="Hamburger Catering" width="1600" height="800">
+  <div class="w3-display-bottomleft w3-padding-large w3-opacity">
+    <h1 class="w3-xxlarge">Le Catering</h1>
+  </div>
+</header>
+
+<!-- Page content -->
+<div class="w3-content" style="max-width:1100px">
+
+  
+  <hr />
+  <!-- Create pizza animation -->
+  <h3> Design your own pizza! </h3>
+  <div class="w3-row w3-padding-64" id="createPizza">
+    <div class="pizzaDesignDiv" id="pizzaDesignDiv" ondrop="drop(event)" ondragover="allowDrop(event)">
+		<!-- Source for images: http://daniellecole.net/portfolio/pizza/index.html -->
+		<img class="toppingOp" src="img/pepperonis.png" id="pepperoniImg" style="display:none"/>
+		<img class="toppingOp" src="img/sausages.png" id="sausageImg" style="display:none"/>
+		<img class="toppingOp" src="img/mushrooms.png" id="mushroomImg" style="display:none"/>
+	</div>
+	<div class="toppingsContainer">
+		<div class="toppingDiv" draggable="true" ondragstart="drag(event)"  id="pepperoni" >
+			<form id="toppingsForm" action="x.php" method="get">
+				<input type="checkbox" name="topping" id="pepperoniCheck" value="pepperoni" onclick="showTopping('pepperoni')"> Pepperoni <br>
+				<input type="checkbox" name="topping" id="sausageCheck" value="sausage" onclick="showTopping('sausage')"> Sausage <br>
+				<input type="checkbox" name="topping" id="mushroomCheck" value="mushroom" onclick="showTopping('mushroom')"> Mushroom <br>
+				<input type="submit" value="Next">
+			</form>
+		</div>
+		<div style='position:absolute;bottom:0px'>
+			<input type="button" value='Clear selection' onclick="clearSelection()" />
+		</div>
+	</div>
+  </div>
+
+  <hr>
+
+
+  
+<!-- End page content -->
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-light-grey w3-padding-32">
+  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+</footer>
+
+</body>
+</html>

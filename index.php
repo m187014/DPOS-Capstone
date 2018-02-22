@@ -12,6 +12,23 @@ $db = new myConnectDB();          # Connect to MySQL
 
 $sessId=session_id();
 
+function logon($db,$username,$password, $sessionID){
+  $validUser = false;
+  if (mysqli_connect_errno()) {
+      echo "<h5>ERROR: " . mysqli_connect_errno() . ": " . mysqli_connect_error() . " </h5><br>";
+  }
+
+  $query = "SELECT Name,Price
+            FROM PizzaTypes";
+  $stmt = $db->stmt_init();
+  $stmt->prepare($query);
+  $result = $stmt->execute();
+  if (!$result || $db->affected_rows == 0) {
+    echo "<h5>ERROR: " . $db->error . " for query *$query*</h5><hr>";
+  }
+  $stmt->bind_result($pizzaname,$price);
+
+
 //add to page
 $page->content.= '     <h3 class="wow fadeInUp" data-wow-delay="1.0s">YOU ARE LOGGED ON</h3>
                 </div>
@@ -49,10 +66,7 @@ h1,h2,h3,h4,h5,h6 {
       <a href="#about" class="w3-bar-item w3-button">About</a>
       <a href="#menu" class="w3-bar-item w3-button">Menu</a>
       <a href="#contact" class="w3-bar-item w3-button">Contact</a>
-	    <p><form method="request" action="DPOSLogin.auth.php">
-          <input type="submit" name="logoff" value="Log Off">
-          </form></p>
-    </div>
+	<a href="DPOSLogin.auth.php" class="w3-bar-item w3-button">Login/Logout</a>    </div>
   </div>
 </div>
 
@@ -76,29 +90,35 @@ h1,h2,h3,h4,h5,h6 {
       <p class="w3-large w3-text-grey w3-hide-medium">"DPOS is the future of the brigade"</p>
     </div>
   </div>
-  
+
   <hr>
-  
   <!-- Menu Section -->
   <div class="w3-row w3-padding-64" id="menu">
     <div class="w3-col l6 w3-padding-large">
-      <h1 class="w3-center">Our Signature Pizzas:</h1><br>
-      <h4>Pepperoni <button type="button">Order</button>  </h4>
+      <h1 class="w3-center">Our Signature Pizzas:</h1><br>';
+$result = $
+for ($i=0; $i < $pizzaname.sizeof(); $i++) {
+    $page->content .= "<h4>$pizzaname     $$price<button type=\"button\" class=\"w3-btn w3-button w3-grey\">Order</button>  </h4>";
+}
+  $stmt->close();
+ $page->content.='
+
+      <h4>Pepperoni <button type="button" class="w3-btn w3-button w3-grey">Order</button>  </h4>
       <p class="w3-text-grey">Delightfully cooked pepperoni under golden-roasted cheese and creamy sauce</p><br>
-    
+
       <h4>Sausage <button type="button">Order</button></h4>
       <p class="w3-text-grey">Imported sausage from Genovia cover this amazing masterpiece</p><br>
-    
+
       <h4>Hawaian <button type="button">Order</button></h4>
       <p class="w3-text-grey">Break out your hula skirts, and step into Hawaii with this sweet and savory treat!</p><br>
-    
+
       <h4>Supreme <button type="button">Order</button></h4>
       <p class="w3-text-grey">Like it all? Poor at decisions? Then get it all!</p><br>
-    
-      <h4>Create your own <button type="button">Create</button></h4>
-      <p class="w3-text-grey">Too choosy? Like to over-comlpicate things? Make your own! </p>    
+
+      <h4>Create your own <button type="button" onclick="window.location.href=\'DesignPizzaPage.html\'">Create</button></h4>
+      <p class="w3-text-grey">Too choosy? Like to over-comlpicate things? Make your own! </p>
     </div>
-    
+
     <div class="w3-col l6 w3-padding-large">
       <img src="pizza2.jpg" class="w3-round w3-image w3-opacity-min" alt="Menu" width="500" height="750">
 	  <!--pic from:
@@ -122,11 +142,11 @@ h1,h2,h3,h4,h5,h6 {
       <p><button class="w3-button w3-light-grey w3-section" type="submit">SEND MESSAGE</button></p>
     </form>
   </div>
-  
+
   <p><form method="request" action="DPOSLogin.auth.php">
           <input type="submit" name="logoff" value="Log Off">
           </form></p>
-  
+
 <!-- End page content -->
 </div>
 

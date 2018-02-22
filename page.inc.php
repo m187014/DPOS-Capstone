@@ -6,7 +6,7 @@ class Page
   private $title = 'DPOS';
   private $keywords = 'IT480';
   private $xmlheader = "<!DOCTYPE html><html>";
-  private $headerTitle = "TAPS";
+  private $headerTitle = "DPOS";
   private $menuList = '<li><a href=#>DPOS</a></li>';
 
   //constructor
@@ -66,18 +66,14 @@ class Page
     <link rel="stylesheet" href="src/css/pure-drawer.css"/>
     <!-- http://mac81.github.io/pure-drawer/ -->
     <!-- //http://stackoverflow.com/questions/2571573/css-footer-position-stick-to-bottom-of-browser -->
-    <style>
-      .podbar {
-        top:10px;
-        left:10px;
-        position:fixed;
-        z-index:150;
-        _position:absolute;
-        _top:expression(eval(document.documentElement.scrollTop+
-            (document.documentElement.clientHeight-this.offsetHeight)));
-        height:35px;
-      }
-    </style>
+   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+body {font-family: "Times New Roman", Georgia, Serif;}
+h1,h2,h3,h4,h5,h6 {
+    font-family: "Playfair Display";
+    letter-spacing: 5px;
+}
+</style>
     <!--JS FILES -->
     <script src="js/jquery.tools.min.js"></script>
     <script src="src/js/vendor/modernizr-2.6.2.min.js"></script>
@@ -112,8 +108,25 @@ class Page
   //display the header part of the visible page
   public function displayContentHeader() {
     ?>
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-padding w3-card-2" style="letter-spacing:4px;">
+    <a href="#home" class="w3-bar-item w3-button">D.P.O.S.</a>
+    <!-- Right-sided navbar links. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+      <a href="#about" class="w3-bar-item w3-button">About</a>
+      <a href="#menu" class="w3-bar-item w3-button">Menu</a>
+      <a href="#contact" class="w3-bar-item w3-button">Contact</a>
+      <a href="DPOSLogin.auth.php" class="w3-bar-item w3-button">Login/Logout</a>
+      
+
+
+    </div>
+  </div>
+</div>
+
     <!-- BEGIN DRAWER -->
-   
+
        <label class="pure-toggle-label" for="pure-toggle-left" data-toggle-label="left">
          <span class="pure-toggle-icon"></span>
        </label>
@@ -124,9 +137,8 @@ class Page
 
     <div class="header" style="min-height: 85px;">
       <!-- Logo/Title -->
-      <div id="site_title"><a href="index.html"> <img src="img/logo.png" alt=""></a> </div>
+      <div id="site_title"><a href="index.html"> <img src="DPOSlogo.png" alt=""></a> </div>
       <!-- Main Menu -->
-      <h1>DPOS LOGIN</h1><br>
 
     </div>
     <!-- END header -->

@@ -40,6 +40,7 @@ function logon($db,$username,$password, $sessionID){
       echo "<h5>ERROR: " . $db->error . " for insert *$insert*</h5><hr>";
     }
     $stmt->close();
+  $_SESSION['user'] = $username;
   }
   return $validUser;
 }
@@ -77,6 +78,7 @@ function logoff($db,$sessionID){
    echo "<h5>ERROR: " . $db->error . " for query *$query2* </h5><hr>";
   }
   $stmt->close();
+  session_destroy();
 }
 
 function update($db,$username,$sessionEncode){
