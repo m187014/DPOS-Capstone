@@ -1,1 +1,3 @@
-a
+<?php
+echo $_GET['pizza'];
+?>

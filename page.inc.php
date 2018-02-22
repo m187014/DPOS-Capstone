@@ -117,8 +117,8 @@ h1,h2,h3,h4,h5,h6 {
       <a href="#about" class="w3-bar-item w3-button">About</a>
       <a href="#menu" class="w3-bar-item w3-button">Menu</a>
       <a href="#contact" class="w3-bar-item w3-button">Contact</a>
-      <a href="DPOSLogin.auth.php" class="w3-bar-item w3-button">Login/Logout</a>
-      
+      <a href="logout.php" class="w3-bar-item w3-button">Login/Logout</a>
+
 
 
     </div>

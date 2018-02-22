@@ -7,16 +7,12 @@ $page = new Page("IndexPage");
 require_once("mysql.inc.php");
 
 require_once("DPOSLogin.auth.php");
-
+session_start();
 $db = new myConnectDB();          # Connect to MySQL
 
 $sessId=session_id();
 
-function logon($db,$username,$password, $sessionID){
-  $validUser = false;
-  if (mysqli_connect_errno()) {
-      echo "<h5>ERROR: " . mysqli_connect_errno() . ": " . mysqli_connect_error() . " </h5><br>";
-  }
+
 
   $query = "SELECT Name,Price
             FROM PizzaTypes";
@@ -66,7 +62,7 @@ h1,h2,h3,h4,h5,h6 {
       <a href="#about" class="w3-bar-item w3-button">About</a>
       <a href="#menu" class="w3-bar-item w3-button">Menu</a>
       <a href="#contact" class="w3-bar-item w3-button">Contact</a>
-	<a href="DPOSLogin.auth.php" class="w3-bar-item w3-button">Login/Logout</a>    </div>
+	<a href="logout.php" class="w3-bar-item w3-button">Login/Logout</a>    </div>
   </div>
 </div>
 
@@ -96,26 +92,25 @@ h1,h2,h3,h4,h5,h6 {
   <div class="w3-row w3-padding-64" id="menu">
     <div class="w3-col l6 w3-padding-large">
       <h1 class="w3-center">Our Signature Pizzas:</h1><br>';
-$result = $
-for ($i=0; $i < $pizzaname.sizeof(); $i++) {
-    $page->content .= "<h4>$pizzaname     $$price<button type=\"button\" class=\"w3-btn w3-button w3-grey\">Order</button>  </h4>";
-}
+#for ($i=0; $i < $pizzaname.sizeof(); $i++) {
+#    $page->content .= "<h4>".$pizzaname . $price."<button type=\"button\" class=\"w3-btn w3-button w3-grey\">Order</button>  </h4>";
+#}
   $stmt->close();
  $page->content.='
 
-      <h4>Pepperoni <button type="button" class="w3-btn w3-button w3-grey">Order</button>  </h4>
+      <h4>Pepperoni <a href="addtocart.php?pizza=pepperoni" button class="w3-btn w3-button w3-grey">Order</a>  </h4>
       <p class="w3-text-grey">Delightfully cooked pepperoni under golden-roasted cheese and creamy sauce</p><br>
 
-      <h4>Sausage <button type="button">Order</button></h4>
+      <h4>Sausage <a href="addtocart.php?pizza=sausage" class="w3-btn w3-button w3-grey">Order</a></h4>
       <p class="w3-text-grey">Imported sausage from Genovia cover this amazing masterpiece</p><br>
 
-      <h4>Hawaian <button type="button">Order</button></h4>
+      <h4>Hawaian <a href="addtocart.php?pizza=hawaian" class="w3-btn w3-button w3-grey">Order</a></h4>
       <p class="w3-text-grey">Break out your hula skirts, and step into Hawaii with this sweet and savory treat!</p><br>
 
-      <h4>Supreme <button type="button">Order</button></h4>
+      <h4>Supreme <a href="addtocart.php?pizza=supreme" class="w3-btn w3-button w3-grey">Order</a></h4>
       <p class="w3-text-grey">Like it all? Poor at decisions? Then get it all!</p><br>
 
-      <h4>Create your own <button type="button" onclick="window.location.href=\'DesignPizzaPage.html\'">Create</button></h4>
+      <h4>Create your own <a href="DesignPizzaPage.html" class="w3-btn w3-button w3-grey" >Create</a></h4>
       <p class="w3-text-grey">Too choosy? Like to over-comlpicate things? Make your own! </p>
     </div>
 
